@@ -1,0 +1,19 @@
+<div class="ui transition fade in tab segment active" data-tab="received" >
+  <% if @received_messages.any? %>
+    <% @received_messages.each do |message| %>
+      <div class="ui message">
+        <div class="header">
+          <a class="ui blue image label">
+            <img src="https://semantic-ui.com/images/avatar/small/veronika.jpg">
+            <%= message.sender.email %>
+            <div class="detail"><%= message.sender.role %></div>
+          </a>
+        </div>
+        <br>
+        <p><%= message.content.nil? ? '' : message.content.html_safe %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <h2>You haven't received any message !</h2>
+  <% end %>
+</div>

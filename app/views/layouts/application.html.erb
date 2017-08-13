@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FitsMindBackendTest</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class= "app-container">
+      <div class="ui secondary pointing menu">
+        <div class="right menu">
+          <a class="ui item">
+            <% if current_user %>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+            <% end %>
+          </a>
+        </div>
+      </div>
+
+      <% flash.each do |key, value| %>
+        <% key = key == "notice" ? "success" : "negative" %>
+        <div class="ui <%= key %> message">
+          <i class="close icon"></i>
+          <div class="header">
+            <center>
+              <%= content_tag :div, value %>
+            </center>
+          </div>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>  
+    <script>$('.close.icon').on('click', function() { $(this).parent().transition('fade'); });</script>`
+  </body>
+</html>

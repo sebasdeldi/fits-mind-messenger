@@ -1,0 +1,29 @@
+<div class="ui grid">
+  <div class="four wide column">
+    <div class="ui vertical fluid tabular menu">
+      <a class="item active" data-tab="received">
+        <div class="ui label"><%= @received_messages.count %></div>
+        Received
+      </a>
+      <a class="item" data-tab="sent">
+        <div class="ui label"><%= @sent_messages.count %></div>
+        Sent
+      </a>
+      <a class="item" data-tab="new">
+        New
+      </a>
+    </div>
+  </div>
+  <div class="twelve wide stretched column" > 
+    <%= render "received_messages" %>
+    <%= render "sent_messages" %>
+    <%= render "new_message" %>
+  </div>
+
+</div>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    $('.tabular.menu .item').tab();
+  })
+</script>

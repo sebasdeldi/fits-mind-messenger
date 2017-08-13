@@ -1,0 +1,23 @@
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+  <div class="ui inverted segment">
+    <h2>Log in</h2>
+
+    <div class="ui inverted form">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, placeholder: "First Name", type: "text" %>
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Email" %>
+      </div>
+      <br>
+      <p><%= f.submit "Log in", class: "ui submit button" %>  <%= render "devise/shared/links" %></p>
+
+    </div>
+  </div>
+ 
+<% end %>
+

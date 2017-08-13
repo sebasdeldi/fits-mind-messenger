@@ -1,0 +1,16 @@
+@import "semantic-ui";
+
+.app-container{
+  margin:50px 300px;
+
+  .ui.secondary.pointing.menu{
+    margin-bottom: 100px !important;
+  }
+
+  .ui.inverted.segment{
+    width: 40%;
+    top: 50%;
+    left: 30%;
+  }
+}
+

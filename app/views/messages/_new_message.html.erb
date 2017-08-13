@@ -1,0 +1,16 @@
+<div class="ui transition fade in tab segment" data-tab="new" >
+
+  <%= form_for :message do |f| %> 
+
+    To: <%= f.collection_select :recipient_id, User.all, :id, :email %> 
+
+    <br>
+    <br>
+    <%= f.cktext_area :content %>
+    <br>
+    <br>
+    <%= f.submit "Send Message", class: "ui submit button" %>
+  <% end %>
+  <% javascript_include_tag Ckeditor.cdn_url %>
+
+</div>
